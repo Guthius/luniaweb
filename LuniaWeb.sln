@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EA4085A9-0936-45FB-8735-1792D50B428E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{B042F3F8-41E8-44D1-AA69-F6D795859A4C}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		docker-compose.yml = docker-compose.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunia.V4.Application", "src\Lunia.V4.Application\Lunia.V4.Application.csproj", "{C09F2054-B821-411A-9DAE-3BA70B854501}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunia.V4.Infrastructure", "src\Lunia.V4.Infrastructure\Lunia.V4.Infrastructure.csproj", "{409D59A2-6CE0-42DB-A947-6B16B657C74F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunia.V4.Domain", "src\Lunia.V4.Domain\Lunia.V4.Domain.csproj", "{572F71BC-7766-4388-ADD5-2EC80BA95253}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunia.V4", "src\Lunia.V4\Lunia.V4.csproj", "{59D3B761-8B54-42AD-AB9C-AC3427EBD0AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dist", "dist", "{BA696FB8-8625-48D7-9FA7-FFA6D92BD262}"
+	ProjectSection(SolutionItems) = preProject
+		dist\init.sql = dist\init.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C09F2054-B821-411A-9DAE-3BA70B854501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C09F2054-B821-411A-9DAE-3BA70B854501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C09F2054-B821-411A-9DAE-3BA70B854501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C09F2054-B821-411A-9DAE-3BA70B854501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{409D59A2-6CE0-42DB-A947-6B16B657C74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409D59A2-6CE0-42DB-A947-6B16B657C74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409D59A2-6CE0-42DB-A947-6B16B657C74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409D59A2-6CE0-42DB-A947-6B16B657C74F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{572F71BC-7766-4388-ADD5-2EC80BA95253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{572F71BC-7766-4388-ADD5-2EC80BA95253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{572F71BC-7766-4388-ADD5-2EC80BA95253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{572F71BC-7766-4388-ADD5-2EC80BA95253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59D3B761-8B54-42AD-AB9C-AC3427EBD0AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59D3B761-8B54-42AD-AB9C-AC3427EBD0AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59D3B761-8B54-42AD-AB9C-AC3427EBD0AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59D3B761-8B54-42AD-AB9C-AC3427EBD0AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C09F2054-B821-411A-9DAE-3BA70B854501} = {EA4085A9-0936-45FB-8735-1792D50B428E}
+		{409D59A2-6CE0-42DB-A947-6B16B657C74F} = {EA4085A9-0936-45FB-8735-1792D50B428E}
+		{572F71BC-7766-4388-ADD5-2EC80BA95253} = {EA4085A9-0936-45FB-8735-1792D50B428E}
+		{59D3B761-8B54-42AD-AB9C-AC3427EBD0AF} = {EA4085A9-0936-45FB-8735-1792D50B428E}
+		{BA696FB8-8625-48D7-9FA7-FFA6D92BD262} = {B042F3F8-41E8-44D1-AA69-F6D795859A4C}
+	EndGlobalSection
+EndGlobal
