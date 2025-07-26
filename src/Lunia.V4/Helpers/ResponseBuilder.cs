@@ -1,4 +1,4 @@
-﻿using System.Text;
+﻿using System.Net;
 
 namespace Lunia.V4.Helpers;
 
@@ -14,26 +14,22 @@ internal sealed class ResponseBuilder
         }
     }
 
+    private const string DateFormat = "yyyy-MM-dd HH:mm:ss";
     private const char DelimField = (char) 8;
     private const char DelimSubField = (char) 11;
 
-    private readonly StringBuilder _stringBuilder = new();
+    private readonly List<string> _values = [];
 
-    public void Write<T>(T value)
+    public void Write<T>(T value) where T : notnull
     {
-        if (_stringBuilder.Length > 0)
-        {
-            _stringBuilder.Append(DelimField);
-        }
-
-        _stringBuilder.Append(value);
+        _values.Add(value.ToString() ?? string.Empty);
     }
 
     public void WriteDateTime(DateTimeOffset? dateTime)
     {
         dateTime ??= DateTimeOffset.MinValue;
 
-        Write(dateTime.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+        Write(dateTime.Value.ToString(DateFormat));
     }
 
     public void Write(Action<FieldBuilder> builder)
@@ -47,6 +43,9 @@ internal sealed class ResponseBuilder
 
     public IResult ToResponse()
     {
-        return Response.Ok(_stringBuilder.ToString());
+        var values = string.Join(DelimField, _values);
+        var valuesEncoded = WebUtility.UrlEncode(values);
+        
+        return Response.Ok(valuesEncoded);
     }
 }

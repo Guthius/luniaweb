@@ -11,12 +11,19 @@ public static class DependencyInjection
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddSingleton(TimeProvider.System);
-        
+
         services.AddDbContext<LobbyDbContext>(options => options
             .UseNpgsql(configuration.GetConnectionString("Database"),
                 o => o.MigrationsHistoryTable(
                     tableName: HistoryRepository.DefaultTableName,
                     schema: LobbyDbContext.SchemaName))
+            .UseSnakeCaseNamingConvention());
+
+        services.AddDbContext<StageDbContext>(options => options
+            .UseNpgsql(configuration.GetConnectionString("Database"),
+                o => o.MigrationsHistoryTable(
+                    tableName: HistoryRepository.DefaultTableName,
+                    schema: StageDbContext.SchemaName))
             .UseSnakeCaseNamingConvention());
     }
 }

@@ -2,6 +2,7 @@
 using Lunia.V4.Application.Characters.Commands.GetCharacterList;
 using Lunia.V4.Application.Lobby.Commands.StartLobby;
 using Lunia.V4.Application.Lobby.Commands.StopLobby;
+using Lunia.V4.Application.Stages.Commands;
 using Lunia.V4.Helpers;
 using MediatR;
 
@@ -97,6 +98,32 @@ internal static class Lobby
                     }
 
                     return response.ToResponse();
+                },
+                Response.Error);
+        });
+
+        group.MapGet("ListSquareStatus.asp", async (ISender sender) =>
+        {
+            var result = await sender.Send(new GetSquareStatusCommand());
+
+            return result.Match(value =>
+                {
+                    var responseBuilder = new ResponseBuilder();
+
+                    foreach (var square in value.Squares)
+                    {
+                        responseBuilder.Write(field =>
+                        {
+                            field.Write(square.SquareName);
+                            field.Write(square.ConnectionCount);
+                            field.Write(square.Capacity);
+                            field.Write(square.StageGroupHash);
+                            field.Write(square.AccessLevel);
+                            field.Write(square.OrderNumber);
+                        });
+                    }
+
+                    return responseBuilder.ToResponse();
                 },
                 Response.Error);
         });
