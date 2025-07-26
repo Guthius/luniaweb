@@ -2,6 +2,7 @@
 
 ![Lunia Logo](.github/Logo.png)
 
+![GitHub branch check runs](https://img.shields.io/github/check-runs/guthius/luniaweb/master)
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/guthius/luniaweb)
 ![GitHub License](https://img.shields.io/github/license/guthius/luniaweb)
 
