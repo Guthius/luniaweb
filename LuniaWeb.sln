@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{B042F3
 		.gitignore = .gitignore
 		docker-compose.yml = docker-compose.yml
 		README.md = README.md
+		LICENSE = LICENSE
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunia.V4.Application", "src\Lunia.V4.Application\Lunia.V4.Application.csproj", "{C09F2054-B821-411A-9DAE-3BA70B854501}"
@@ -20,6 +21,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dist", "dist", "{BA696FB8-8625-48D7-9FA7-FFA6D92BD262}"
 	ProjectSection(SolutionItems) = preProject
 		dist\init.sql = dist\init.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{B2C1250F-C47E-4547-B672-96D08E7B84D2}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 	EndProjectSection
 EndProject
 Global
@@ -51,5 +57,6 @@ Global
 		{572F71BC-7766-4388-ADD5-2EC80BA95253} = {EA4085A9-0936-45FB-8735-1792D50B428E}
 		{59D3B761-8B54-42AD-AB9C-AC3427EBD0AF} = {EA4085A9-0936-45FB-8735-1792D50B428E}
 		{BA696FB8-8625-48D7-9FA7-FFA6D92BD262} = {B042F3F8-41E8-44D1-AA69-F6D795859A4C}
+		{B2C1250F-C47E-4547-B672-96D08E7B84D2} = {B042F3F8-41E8-44D1-AA69-F6D795859A4C}
 	EndGlobalSection
 EndGlobal

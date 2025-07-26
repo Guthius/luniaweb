@@ -1,4 +1,11 @@
+<div align="center">
+
 ![Lunia Logo](.github/Logo.png)
+
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/guthius/luniaweb)
+![GitHub License](https://img.shields.io/github/license/guthius/luniaweb)
+
+</div>
 
 # Lunia V4 Backend
 
