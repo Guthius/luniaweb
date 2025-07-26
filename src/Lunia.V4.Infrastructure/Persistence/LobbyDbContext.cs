@@ -6,7 +6,7 @@ namespace Lunia.V4.Infrastructure.Persistence;
 public sealed class LobbyDbContext(DbContextOptions<LobbyDbContext> options) : DbContext(options)
 {
     public const string SchemaName = "lobby";
-    
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema(SchemaName);
@@ -16,7 +16,10 @@ public sealed class LobbyDbContext(DbContextOptions<LobbyDbContext> options) : D
             provider: "icu",
             deterministic: false);
 
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(LobbyDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(
+            typeof(LobbyDbContext).Assembly,
+            type => type.Namespace != null &&
+                    type.Namespace.EndsWith(".Lobby"));
     }
 
     public DbSet<Account> Accounts => Set<Account>();

@@ -475,7 +475,8 @@ namespace Lunia.V4.Infrastructure.Persistence.Migrations.Lobby
                     b.Property<string>("ServerName")
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)")
-                        .HasColumnName("server_name");
+                        .HasColumnName("server_name")
+                        .UseCollation("case_insensitive");
 
                     b.Property<string>("AccountName")
                         .HasMaxLength(50)
@@ -496,7 +497,8 @@ namespace Lunia.V4.Infrastructure.Persistence.Migrations.Lobby
                     b.Property<string>("ServerName")
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)")
-                        .HasColumnName("server_name");
+                        .HasColumnName("server_name")
+                        .UseCollation("case_insensitive");
 
                     b.Property<string>("Ip")
                         .IsRequired()
@@ -509,7 +511,7 @@ namespace Lunia.V4.Infrastructure.Persistence.Migrations.Lobby
                         .HasColumnName("port");
 
                     b.HasKey("ServerName")
-                        .HasName("pk_lobby_servers");
+                        .HasName("ak_lobby_servers_server_name");
 
                     b.ToTable("lobby_servers", "lobby");
                 });
@@ -593,6 +595,13 @@ namespace Lunia.V4.Infrastructure.Persistence.Migrations.Lobby
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_lobby_connections_accounts_account_name");
+
+                    b.HasOne("Lunia.V4.Domain.Entities.LobbyServer", null)
+                        .WithMany()
+                        .HasForeignKey("ServerName")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_lobby_connections_lobby_servers_server_name");
                 });
 
             modelBuilder.Entity("Lunia.V4.Domain.Entities.SelectedCharacter", b =>

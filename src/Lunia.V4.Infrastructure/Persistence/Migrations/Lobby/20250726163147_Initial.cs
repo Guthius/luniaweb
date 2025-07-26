@@ -61,13 +61,13 @@ namespace Lunia.V4.Infrastructure.Persistence.Migrations.Lobby
                 schema: "lobby",
                 columns: table => new
                 {
-                    server_name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    server_name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false, collation: "case_insensitive"),
                     ip = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     port = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("pk_lobby_servers", x => x.server_name);
+                    table.PrimaryKey("ak_lobby_servers_server_name", x => x.server_name);
                 });
 
             migrationBuilder.CreateTable(
@@ -133,7 +133,7 @@ namespace Lunia.V4.Infrastructure.Persistence.Migrations.Lobby
                 schema: "lobby",
                 columns: table => new
                 {
-                    server_name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    server_name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false, collation: "case_insensitive"),
                     account_name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
@@ -145,6 +145,13 @@ namespace Lunia.V4.Infrastructure.Persistence.Migrations.Lobby
                         principalSchema: "lobby",
                         principalTable: "accounts",
                         principalColumn: "account_name",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "fk_lobby_connections_lobby_servers_server_name",
+                        column: x => x.server_name,
+                        principalSchema: "lobby",
+                        principalTable: "lobby_servers",
+                        principalColumn: "server_name",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -340,11 +347,11 @@ namespace Lunia.V4.Infrastructure.Persistence.Migrations.Lobby
                 schema: "lobby");
 
             migrationBuilder.DropTable(
-                name: "lobby_servers",
+                name: "selected_characters",
                 schema: "lobby");
 
             migrationBuilder.DropTable(
-                name: "selected_characters",
+                name: "lobby_servers",
                 schema: "lobby");
 
             migrationBuilder.DropTable(

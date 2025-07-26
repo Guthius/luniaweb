@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Lunia.V4.Infrastructure.Persistence.Configuration;
+namespace Lunia.V4.Infrastructure.Persistence.Configuration.Lobby;
 
 internal sealed class BlockConfiguration : IEntityTypeConfiguration<Block>
 {
